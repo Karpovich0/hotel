@@ -4,6 +4,11 @@ window.onload = function() {
        format: '+38 (___) ___-__-__',
        separator: '+38 (   )-'
     }); 
+    MaskedInput({
+      elm: document.getElementById('telephone-ask'), // select only by id
+      format: '+38 (___) ___-__-__',
+      separator: '+38 (   )-'
+   }); 
  }; 
  
  

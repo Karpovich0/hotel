@@ -57,7 +57,7 @@
                     <button type="button" class="reserve__details"><span>?</span>примітки</button>
                 </header>
                 <div class="reserve__body">
-                    <form action="">
+                    <form class="reserve__form" action="">
                         <fieldset class="reserve__fieldset reserve__fieldset--one">
                             <p class="reserve__form-legend">Оберіть готельний комплекс, в якому Ви бажаєте здійснити бронювання номеру:</p>
                             <div class="reserve__fieldset-inner">
@@ -210,18 +210,18 @@
                                     <div class="check__item-value check__item-value--comment"></div>
                             </div>
                         </section>
-                        <input type="tel" class="visually-hidden hidden-phone">
+                        <input type="tel" class="visually-hidden hidden-phone" name="hidden-number">
                     </form>                                
                 </div>
                 <footer class="reserve__footer">
-                    <button type="button" class="reserve__footer-button reserve__footer-button--back">
+                    <button type="button" class="reserve__footer-button reserve__footer-button--back"  onclick="closeMenu()">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#b9d1cc;}</style></defs><title>arrow-right</title><g id="arrow-right-Filled"><path id="arrow-right-Filled-2" data-name="arrow-right-Filled" class="cls-1" d="M21.707,12.707l-7,7a1,1,0,0,1-1.414-1.414L18.586,13H3a1,1,0,0,1,0-2H18.586L13.293,5.707a1,1,0,0,1,1.414-1.414l7,7A1,1,0,0,1,21.707,12.707Z"/></g></svg>
                         <span>
                         Назад
                         </span>
                     </button>
-                    <button type="button" class="reserve__footer-button reserve__footer-button--forward">
-                        <span>
+                    <button type="button" class="reserve__footer-button reserve__footer-button--forward" onclick="closeMenu()">
+                        <span class="reserve__footer-span-forward">
                         Далі
                         </span>
                         <svg width="24px" height="24px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#b9d1cc;}</style></defs><title>arrow-right</title><g id="arrow-right-Filled"><path id="arrow-right-Filled-2" data-name="arrow-right-Filled" class="cls-1" d="M21.707,12.707l-7,7a1,1,0,0,1-1.414-1.414L18.586,13H3a1,1,0,0,1,0-2H18.586L13.293,5.707a1,1,0,0,1,1.414-1.414l7,7A1,1,0,0,1,21.707,12.707Z"/></g></svg>
@@ -233,7 +233,7 @@
                     <h2 class="ask__title">Задати питання</h2>
                     <p class="ask__text">Заповніть форму та натисніть «Відправити»</p>
                 </header>
-            <form action="ask__form">
+            <form action="" class="ask__form">
                 <div class="three">
                     <ul class="three__list">
                         <li class="three__item">
@@ -242,7 +242,8 @@
                         </li>
                         <li class="three__item">
                             <label for="telephone-ask" class="reserve__label">Телефон:<span>*</span></label>
-                            <input id="telephone-ask" required type="tel" name="telephone-ask" class="reserve__input">
+                            <input id="telephone-ask" required type="tel" name="telephone-ask" class="reserve__input" value="+38 (___) ___-__-__" 
+                            pattern="^\+38(\s+)?\(?[0-9]{3}\)?(\s+)?[0-9]{3}-?[0-9]{2}-?[0-9]{2}$">
                         </li>
                         <li class="three__item">
                             <label for="email-ask" class="reserve__label">Email:</label>
@@ -260,6 +261,7 @@
                         </label>
                     </div>
                 </div>
+                <input type="tel" class="visually-hidden hidden-phone" name="hidden-number">
                 <div class="ask__button-wrapper">
                     <button type="button" class="request__button ask__button">ВІДПРАВИТИ</button>
                 </div>
@@ -297,7 +299,6 @@
     </div>
     <script src="./js/script.js"></script>
     <script src="./js/select.js"></script>
-    <script src="./js/result.js"></script>
     <script src="./js/phone.js"></script>
     <script src="./js/jquery-3.6.1.min.js"></script>
 </body>

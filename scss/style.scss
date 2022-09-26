@@ -14,7 +14,14 @@ body{
     select,
     a {
       -webkit-tap-highlight-color: rgba(0,0,0,0);
-    }     
+    }
+    .unfilled{
+        box-shadow: 0 0 9px 1px rgba(255, 255, 255, 0.46);
+        border: 1px solid #ff0100;
+        background-color: #d8e1e0;
+    }
+    .red{
+    }
 }
 fieldset {
     border: 0;
@@ -39,6 +46,7 @@ fieldset {
     max-width: 414px;
     min-height: 100%;
 }
+
 @import 'intro';
 @import 'reserve';
 @import 'check';

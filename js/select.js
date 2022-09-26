@@ -18,6 +18,8 @@ menuLabelRoomArray.forEach((item, index) =>{ item.addEventListener("click", func
 
 menuButtonRoom.addEventListener("click", function(){
     menuListRoom.classList.toggle("menu__list--active");
+    menuListAdult.classList.remove("menu__list--active");
+    menuListChild.classList.remove("menu__list--active");
 });
 
 // --------------------------------------------------------------------------
@@ -25,10 +27,12 @@ menuButtonRoom.addEventListener("click", function(){
 menuLabelAdultArray.forEach((item, index) =>{ item.addEventListener("click", function(){
     menuButtonAdult.innerHTML = menuLabelAdultArray[index].innerHTML;
     menuListAdult.classList.toggle("menu__list--active");
-})
+    })
 });
 
 menuButtonAdult.addEventListener("click", function(){
+    menuListRoom.classList.remove("menu__list--active");   
+    menuListChild.classList.remove("menu__list--active");
     menuListAdult.classList.toggle("menu__list--active");
 })
 
@@ -41,5 +45,19 @@ menuLabelChildArray.forEach((item, index) =>{ item.addEventListener("click", fun
 });
 
 menuButtonChild.addEventListener("click", function(){
+    menuListRoom.classList.remove("menu__list--active");   
+    menuListAdult.classList.remove("menu__list--active");
     menuListChild.classList.toggle("menu__list--active");
-})
+});
+
+function closeMenu(){
+    if(menuListRoom.classList.contains("menu__list--active")){
+        menuListRoom.classList.remove("menu__list--active");
+    }
+    if(menuListAdult.classList.contains("menu__list--active")){
+    menuListAdult.classList.remove("menu__list--active");
+    }
+    if(menuListChild.classList.contains("menu__list--active")){
+    menuListChild.classList.remove("menu__list--active");
+    }
+}
