@@ -705,11 +705,19 @@ fieldset {
   font-weight: 400;
 }
 
+.request__title--error {
+  color: #ff0000;
+}
+
 .request__subtitle {
   margin-bottom: 45px;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+}
+
+.request__subtitle--error {
+  color: #ff0000;
 }
 
 .request__text {
