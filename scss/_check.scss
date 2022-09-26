@@ -1,0 +1,57 @@
+.check {
+    &--hidden{
+        display: none;
+    }
+    padding: 40px 23px;
+    &__title {
+        margin-bottom: 25px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+        letter-spacing: 0.4px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-column-gap: 7px;
+        grid-row-gap: 27px;
+    }
+
+    
+
+    &__item-name {
+        color: #b6d2cb;
+        font-family: 'HelveticaNeueCyr-Roman', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+    }
+
+    &__item-value {
+        color: #ffffff;
+        font-family: 'HelveticaNeueCyr-Roman', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+    }
+    &__item-value--children{
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        grid-column-gap: 7px;
+        #adult-number{
+            margin-right: 13px;
+        }
+    }
+    &__item-value--dates{
+        color: #b6d2cb;
+    }
+    &__enter-date {
+        color: #ffffff;
+    }
+
+    &__exit-date {
+        color: #ffffff;
+    }
+}

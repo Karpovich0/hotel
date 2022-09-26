@@ -1,0 +1,110 @@
+.intro {
+    display: none;
+    &--visible{
+        display: block;
+    }
+    &__header {
+        padding: 30px 30px 13px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #1e4339;
+    }  
+    &__logo {
+        margin-bottom: 8px;
+    }
+    &__title{
+        color: #77ab92;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 27.02px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.28px;
+    }
+    &__body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 38px 20px;
+        &--hidden{
+            display: none;
+        }
+    }
+    &__message-wrapper{
+        margin-bottom: 37px;
+    }
+    &__message{
+        margin-bottom: 14px;
+        color: #ffffff;
+        font-family: 'HelveticaNeueCyr-Roman', sans-serif; //CHANGE FAMILY
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+    }
+    &__button-wrapper{   
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;     
+    }
+    &__button{
+        position: relative;
+        display: block;
+        margin-bottom: 47px;         
+        width: 100%;
+        max-width: 260px;
+        height: 40px;        
+        border-radius: 18px;
+        border: 1px solid #0d211c;
+        background-color: #2a5f4e;
+        /*fonts*/
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;        
+        line-height: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -25px;
+            width: 56px;
+            height: 56px;
+            background-image: url(../src/cyrcle.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transform: translateY(-50%);
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            top: 47%;
+            left: -9px;
+            width: 29px;
+            height: 24px;
+            background-image: url(../src/reserve.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            transform: translateY(-50%);
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &--ask{
+            &::after{
+                left: -12px;
+                width: 30px;
+                height: 27px;
+                background-image: url(../src/ask.png);
+            }
+        }
+    }
+  }
+

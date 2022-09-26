@@ -1,0 +1,71 @@
+.details {   
+    position: absolute;
+    top: 50px; 
+    left: 50%;
+    padding: 0 30px 21px;
+    border-radius: 5px;
+    background-color: #fff;
+    height: 100%;
+    max-height: 507px;
+    width: 90%;
+    overflow: auto;
+    transform: translateX(-50%);
+    &--hidden{
+        display: none;
+    }
+    &__header {
+        top: 0;
+        left: 0;        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 55px;
+        width: 100%;
+        background-color: #fff;
+        position: sticky;
+    }
+    &__header-title{
+        color: #1e4339;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: left;
+    }
+    &__button {
+        padding: 0;
+        position: absolute;
+        top: 12px;
+        right: -17px;
+        width: 25px;
+        height: 25px;
+        border: none;
+        background-color: transparent;
+        background-image: url(../src/close-svgrepo-com.svg);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &__body {
+    }
+
+    &__paragraph {      
+        margin-bottom: 15px;  
+        color: #0b1815;
+        font-family: 'HelveticaNeueCyr-Roman', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: left;
+    }
+}
+.details-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    &--hidden{
+        display: none;
+    }
+}

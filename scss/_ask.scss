@@ -1,0 +1,48 @@
+.ask{
+    &--hidden{
+        display: none;
+    }
+    &__header{
+        font-family: 'HelveticaNeueCyr-Roman', sans-serif;
+        padding: 20px;
+        background-color: #1e4339;
+    }
+    &__title{       
+        margin-bottom: 14px;
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    &__text{
+        color: #80a095;       
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+    }
+    .three{
+        display: block;
+        padding: 39px 22px 31px;
+    }
+    &__button-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    &__button{
+        padding-right: 27px;
+        position: relative;
+        min-width: 158px;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            width: 16px;
+            height: 16px;
+            background-image: url(../src/arrow-right-svgrepo-com.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transform: translateY(-50%);
+        }
+    }
+}
