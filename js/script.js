@@ -57,6 +57,8 @@ const fieldChildrenNumber = document.querySelector("#children-number");
 const fieldAdditional = document.querySelector(".check__item-value--additional");
 const fieldComment = document.querySelector(".check__item-value--comment");
 
+const emailAsk =  document.querySelector("#email-ask");
+
 const userAgreement = document.querySelector("#user-agreement");
 
 // ask form 
@@ -74,11 +76,11 @@ const reserveHotelInputArray = document.querySelectorAll(".reserve__hotel-input"
 let checkArray1 = [reserveEnterDate.value, reserveExitDate.value, menuButtonAdultResult.innerHTML, menuButtonRoomResult.innerHTML];
 let markArray1 = [reserveEnterDate, reserveExitDate, menuButtonAdultResult, menuButtonRoomResult];
 
-let checkArray2 = [nameSurname.value, telephone.value, userAgreement.checked];
-let markArray2 = [nameSurname, telephone, userAgreement];
+let checkArray2 = [nameSurname.value, telephone.value, userAgreement.checked, email.value];
+let markArray2 = [nameSurname, telephone, userAgreement, email];
 
 let checkArray3 = [nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked];
-let markArray3 = [nameSurnameAsk, telephoneAsk, commentsAsk, userAgreementAsk];
+let markArray3 = [nameSurnameAsk, telephoneAsk, commentsAsk, userAgreementAsk, emailAsk];
 
 //  hotelsite.com.ua/booking/?phone=0971843877
 let params = new URLSearchParams(location.search);
@@ -124,10 +126,10 @@ askButton.addEventListener('click', function(){
         ask.classList.add("ask--hidden");
         intro.classList.add("intro--visible");
         requestAsk.classList.remove("request--hidden");
-        notVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked], markArray3);
+        notVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked, emailAsk.value], markArray3);
         makeRequest(askForm);
     }else{
-        makeVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked], markArray3);
+        makeVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked, emailAsk.value], markArray3);
     }
     
 });
@@ -229,9 +231,9 @@ function checkForms(){
         if(nameSurname.value && telephone.value !== "+38 (___) ___-__-__" && userAgreement.checked){
             reserveStepNumber.innerHTML = page+1;
             changePage();
-            notVisible([nameSurname.value, telephone.value, userAgreement.checked], markArray2);
+            notVisible([nameSurname.value, telephone.value, userAgreement.checked, email.value], markArray2);
         }else{
-            makeVisible([nameSurname.value, telephone.value, userAgreement.checked], markArray2);
+            makeVisible([nameSurname.value, telephone.value, userAgreement.checked, email.value], markArray2);
             page--;
         };
     }else if(page === 1) {
@@ -336,6 +338,27 @@ userAgreement.addEventListener("click", function(){
 userAgreementAsk.addEventListener("click", function(){
     userAgreementAsk.classList.remove("unfilled");
 });
+
+email.addEventListener("input", function(){
+    email.classList.remove("unfilled");
+});
+
+emailAsk.addEventListener("input", function(){
+    emailAsk.classList.remove("unfilled");
+});
+
+document.querySelector(".ask__back-button").addEventListener("click", function(){
+    intro.classList.add("intro--visible");
+    introBody.classList.remove("intro__body--hidden");
+    ask.classList.add("ask--hidden");
+
+    nameSurnameAsk.classList.remove("unfilled");
+    telephoneAsk.classList.remove("unfilled");
+    commentsAsk.classList.remove("unfilled");
+    userAgreementAsk.classList.remove("unfilled");
+    emailAsk.classList.remove("unfilled");    
+})
+
 
 
 

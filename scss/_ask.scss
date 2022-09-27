@@ -24,8 +24,9 @@
         padding: 39px 22px 31px;
     }
     &__button-wrapper{
+        padding: 0 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
     &__button{
         padding-right: 27px;
@@ -44,5 +45,31 @@
             background-size: contain;
             transform: translateY(-50%);
         }
+    }
+    &__back-button{
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+        min-width: 94px;
+        height: 34px;
+        color: #b9d1cc;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+        justify-content: start;
+        border-radius: 17px;
+        border: 1px solid #0d211c;
+        background-color: #2a5f4e;
+        svg{
+            width: 16px;
+            height: 16px;
+            transform: rotate(180deg);
+        }
+        span{
+            padding-right: 5px;
+        }        
     }
 }
