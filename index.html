@@ -69,16 +69,18 @@
                             <p class="reserve__form-legend">Оберіть готельний комплекс, в якому Ви бажаєте здійснити бронювання номеру:</p>
                             <div class="reserve__fieldset-inner">
                                 <div class="reserve__input-item">
-                                    <input id="hotel-5-starts" type="radio" class="reserve__hotel-input" required name="hotel" value="">
-                                    <label for="hotel-5-starts" class="reserve__hotel-label">
-                                        <img src="./src/5-starts.jpg" alt="" class="reserve__hotel-image">
+                                    <input id="hotel-5-stars" type="radio" class="reserve__hotel-input" required name="hotel" value="5-stars">
+                                    <label for="hotel-5-stars" class="reserve__hotel-label" onclick="selectedHotel(0)">
+                                        <img src="./src/5-stars.jpg" alt="" class="reserve__hotel-image">
+                                        <img src="./src/5-stars-selected.jpg" alt="" class="reserve__hotel-image reserve__hotel-image--selected">
                                         <span class="visually-hidden reserve__hotel-label-text">5 зірок</span>
                                     </label>
                                 </div>
                                 <div class="reserve__input-item">
-                                    <input id="hotel-4-starts" type="radio" class="reserve__hotel-input" required name="hotel" value="">
-                                    <label for="hotel-4-starts" class="reserve__hotel-label">
-                                        <img src="./src/4-starts.jpg" alt="" class="reserve__hotel-image">
+                                    <input id="hotel-4-stars" type="radio" class="reserve__hotel-input" required name="hotel" value="4-stars">
+                                    <label for="hotel-4-stars" class="reserve__hotel-label" onclick="selectedHotel(1)">
+                                        <img src="./src/4-stars.jpg" alt="" class="reserve__hotel-image">
+                                        <img src="./src/4-stars-selected.jpg" alt="" class="reserve__hotel-image reserve__hotel-image--selected">
                                         <span class="visually-hidden reserve__hotel-label-text">4 зірки</span>
                                     </label>
                                 </div>
@@ -88,7 +90,7 @@
                             <div class="reserve__item-two menu">
                                 <p for="reserve-enter-date" class="reserve__label">Тип номеру:<span>*</span></p>
                                 <button type="button" class="menu__button menu__button--room"></button>
-                                <ul class="menu__list menu__list--room">
+                                <ul class="menu__list menu__list--room menu__list--5stars">
                                     <li class="menu__item">
                                         <label for="type-1" class="menu__label menu__label--room">Тип 1</label>
                                         <input id="type-1" required type="radio" value="type-1" class="visually-hidden" name="room-type">
@@ -100,6 +102,20 @@
                                     <li class="menu__item">
                                         <label for="type-3" class="menu__label menu__label--room">Тип 3</label>
                                         <input id="type-3" required type="radio" value="type-3" class="visually-hidden" name="room-type">
+                                    </li>
+                                </ul>
+                                <ul class="menu__list menu__list--room menu__list--4stars">
+                                    <li class="menu__item">
+                                        <label for="type-4" class="menu__label menu__label--room">Тип 4</label>
+                                        <input id="type-4" required type="radio" value="type-4" class="visually-hidden" name="room-type">
+                                    </li>
+                                    <li class="menu__item">
+                                        <label for="type-5" class="menu__label menu__label--room">Тип 5</label>
+                                        <input id="type-5" required type="radio" value="type-5" class="visually-hidden" name="room-type">
+                                    </li>
+                                    <li class="menu__item">
+                                        <label for="type-6" class="menu__label menu__label--room">Тип 6</label>
+                                        <input id="type-6" required type="radio" value="type-6" class="visually-hidden" name="room-type">
                                     </li>
                                 </ul>
                             </div>

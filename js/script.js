@@ -70,6 +70,13 @@ const reserveFooterSpanForward = document.querySelector(".reserve__footer-span-f
 const reserveHotelLableArray = document.querySelectorAll(".reserve__hotel-label");
 const reserveHotelInputArray = document.querySelectorAll(".reserve__hotel-input");
 
+
+let checkArray1 = [reserveEnterDate.value, reserveExitDate.value, menuButtonAdultResult.innerHTML, menuButtonRoomResult.innerHTML];
+let markArray1 = [reserveEnterDate, reserveExitDate, menuButtonAdultResult, menuButtonRoomResult];
+
+let checkArray2 = [nameSurname.value, telephone.value, userAgreement.checked];
+let markArray2 = [nameSurname, telephone, userAgreement];
+
 let checkArray3 = [nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked];
 let markArray3 = [nameSurnameAsk, telephoneAsk, commentsAsk, userAgreementAsk];
 
@@ -117,10 +124,10 @@ askButton.addEventListener('click', function(){
         ask.classList.add("ask--hidden");
         intro.classList.add("intro--visible");
         requestAsk.classList.remove("request--hidden");
-        notVisible(checkArray3, markArray3);
+        notVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked], markArray3);
         makeRequest(askForm);
     }else{
-        makeVisible(checkArray3, markArray3);
+        makeVisible([nameSurnameAsk.value, telephoneAsk.value, commentsAsk.value, userAgreementAsk.checked], markArray3);
     }
     
 });
@@ -208,36 +215,33 @@ function fillFields(){
     fieldComment.innerHTML = comments.value;
 }
 
-let checkArray1 = [reserveEnterDate.value, reserveExitDate.value, menuButtonAdultResult.innerHTML, menuButtonRoomResult.innerHTML];
-let markArray1 = [reserveEnterDate, reserveExitDate, menuButtonAdultResult, menuButtonRoomResult];
-
-let checkArray2 = [nameSurname.value, telephone.value, userAgreement.checked];
-let markArray2 = [nameSurname, telephone, userAgreement];
-
 function checkForms(){
     if(page === 2){
         if(reserveEnterDate.value && reserveExitDate.value && menuButtonAdultResult.innerHTML &&    menuButtonRoomResult.innerHTML){
             reserveStepNumber.innerHTML = page+1;
             changePage();
-            notVisible(checkArray1, markArray1);
+            notVisible([reserveEnterDate.value, reserveExitDate.value, menuButtonAdultResult.innerHTML, menuButtonRoomResult.innerHTML], markArray1);
         }else{
-            makeVisible(checkArray1, markArray1);
+            makeVisible([reserveEnterDate.value, reserveExitDate.value, menuButtonAdultResult.innerHTML, menuButtonRoomResult.innerHTML], markArray1);
             page--;
         };
     }else if(page === 3){
         if(nameSurname.value && telephone.value !== "+38 (___) ___-__-__" && userAgreement.checked){
             reserveStepNumber.innerHTML = page+1;
             changePage();
-            notVisible(checkArray2, markArray2);
+            notVisible([nameSurname.value, telephone.value, userAgreement.checked], markArray2);
         }else{
-            makeVisible(checkArray2, markArray2);
+            makeVisible([nameSurname.value, telephone.value, userAgreement.checked], markArray2);
             page--;
         };
     }else if(page === 1) {
         if(reserveHotelInputArray[0].checked || reserveHotelInputArray[1].checked){
+            let number = 0;
+            reserveHotelInputArray[0].checked ? number = 0 : number = 1;
             reserveStepNumber.innerHTML = page+1;
             changePage();
             notVisibleHotel();
+            showList(number);
         }else{
             makeVisibleHotel();
             page--;
@@ -283,6 +287,55 @@ function makeVisibleHotel(){
 function notVisibleHotel(){
     reserveHotelLableArray.forEach(item => item.classList.remove("red"))
 }
+
+let menuListArray = document.querySelectorAll(".menu__list");
+function showList(number){
+    if(number === 0) {
+        menuListArray[0].classList.add("menu__list--visible");
+        if(menuListArray[1].classList.contains("menu__list--visible")){
+            menuListArray[1].classList.remove("menu__list--visible");
+        }        
+    }else{
+        menuListArray[1].classList.add("menu__list--visible");
+        if(menuListArray[0].classList.contains("menu__list--visible")){
+            menuListArray[0].classList.remove("menu__list--visible");
+        }  
+    }  
+}
+reserveHotelLableArray.forEach(item => item.addEventListener("click", function(){
+    reserveHotelLableArray.forEach( item => item.classList.remove("red"))
+}));
+
+reserveEnterDate.addEventListener("input", function(){
+    reserveEnterDate.classList.remove("unfilled");
+});
+reserveExitDate.addEventListener("input", function(){
+    reserveExitDate.classList.remove("unfilled");
+});
+
+nameSurname.addEventListener("input", function(){
+    nameSurname.classList.remove("unfilled");
+});
+telephone.addEventListener("click", function(){
+    telephone.classList.remove("unfilled");
+});
+nameSurnameAsk.addEventListener("input", function(){
+    nameSurnameAsk.classList.remove("unfilled");
+});
+telephoneAsk.addEventListener("click", function(){
+    telephoneAsk.classList.remove("unfilled");
+});
+commentsAsk.addEventListener("input", function(){
+    commentsAsk.classList.remove("unfilled");
+});
+
+userAgreement.addEventListener("click", function(){
+    userAgreement.classList.remove("unfilled");
+});
+
+userAgreementAsk.addEventListener("click", function(){
+    userAgreementAsk.classList.remove("unfilled");
+});
 
 
 

@@ -20,8 +20,6 @@ body{
         border: 1px solid #ff0100;
         background-color: #d8e1e0;
     }
-    .red{
-    }
 }
 fieldset {
     border: 0;
@@ -46,6 +44,12 @@ fieldset {
     max-width: 414px;
     min-height: 100%;
 }
+
+// #user-agreement.unfilled+label{
+//     &::before{
+//         border:1px solid #ff0100
+//     }
+// }
 
 @import 'intro';
 @import 'reserve';

@@ -1,4 +1,4 @@
-const menuListRoom = document.querySelector(".menu__list--room");
+const menuListRoomArray = document.querySelectorAll(".menu__list--room");
 const menuLabelRoomArray = document.querySelectorAll(".menu__label--room");
 const menuButtonRoom = document.querySelector(".menu__button--room");
 
@@ -10,14 +10,19 @@ const menuListChild = document.querySelector(".menu__list--child");
 const menuLabelChildArray = document.querySelectorAll(".menu__label--child");
 const menuButtonChild = document.querySelector(".menu__button--child");
 
+const menuButtonArray = [menuButtonRoom, menuButtonAdult, menuButtonChild];
+
+let hotelNumber = 0;
+
 menuLabelRoomArray.forEach((item, index) =>{ item.addEventListener("click", function(){
     menuButtonRoom.innerHTML = menuLabelRoomArray[index].innerHTML;
-    menuListRoom.classList.toggle("menu__list--active");
+    menuListRoomArray[hotelNumber].classList.toggle("menu__list--active");
 })
 });
 
 menuButtonRoom.addEventListener("click", function(){
-    menuListRoom.classList.toggle("menu__list--active");
+    menuListRoomArray[hotelNumber].classList.toggle("menu__list--active");
+    menuButtonRoom.classList.remove("unfilled");
     menuListAdult.classList.remove("menu__list--active");
     menuListChild.classList.remove("menu__list--active");
 });
@@ -31,7 +36,8 @@ menuLabelAdultArray.forEach((item, index) =>{ item.addEventListener("click", fun
 });
 
 menuButtonAdult.addEventListener("click", function(){
-    menuListRoom.classList.remove("menu__list--active");   
+    menuListRoomArray[hotelNumber].classList.remove("menu__list--active");    
+    menuButtonAdult.classList.remove("unfilled");   
     menuListChild.classList.remove("menu__list--active");
     menuListAdult.classList.toggle("menu__list--active");
 })
@@ -45,14 +51,15 @@ menuLabelChildArray.forEach((item, index) =>{ item.addEventListener("click", fun
 });
 
 menuButtonChild.addEventListener("click", function(){
-    menuListRoom.classList.remove("menu__list--active");   
+    menuListRoomArray[hotelNumber].classList.remove("menu__list--active");
+    menuButtonChild.classList.remove("unfilled");   
     menuListAdult.classList.remove("menu__list--active");
     menuListChild.classList.toggle("menu__list--active");
 });
 
 function closeMenu(){
-    if(menuListRoom.classList.contains("menu__list--active")){
-        menuListRoom.classList.remove("menu__list--active");
+    if(menuListRoomArray[hotelNumber].classList.contains("menu__list--active")){
+        menuListRoomArray[hotelNumber].classList.remove("menu__list--active");
     }
     if(menuListAdult.classList.contains("menu__list--active")){
     menuListAdult.classList.remove("menu__list--active");
@@ -60,4 +67,14 @@ function closeMenu(){
     if(menuListChild.classList.contains("menu__list--active")){
     menuListChild.classList.remove("menu__list--active");
     }
+}
+
+function selectedHotel(number){
+    if(hotelNumber === number){
+        hotelNumber = number;
+    }else{
+        hotelNumber = number;
+        document.querySelector(".menu__button--room").innerHTML = "";
+    }
+
 }

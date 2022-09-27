@@ -92,6 +92,15 @@
         height: 20px; 
         border: none;     
     }
+    &__hotel-image--selected{
+        display: none;
+    }
+    &__hotel-input:checked+&__hotel-label>&__hotel-image{
+        display: none;
+    }
+    &__hotel-input:checked+&__hotel-label>&__hotel-image--selected{
+        display: block;
+    }
     &__hotel-label{
         // position: relative;
         width: 100%;
@@ -310,6 +319,13 @@
         height: 16px;
         border-radius: 3px;
         background-color: #2a5f4e;
+    }
+}
+.checkbox.unfilled+.checkbox-label{
+    &::before{
+        box-shadow: 0 0 9px 1px rgba(255, 255, 255, 0.46);
+        border: 1px solid #ff0100;
+        background-color: #d8e1e0;
     }
 }
 

@@ -339,6 +339,18 @@ fieldset {
   border: none;
 }
 
+.reserve__hotel-image--selected {
+  display: none;
+}
+
+.reserve__hotel-input:checked + .reserve__hotel-label > .reserve__hotel-image {
+  display: none;
+}
+
+.reserve__hotel-input:checked + .reserve__hotel-label > .reserve__hotel-image--selected {
+  display: block;
+}
+
 .reserve__hotel-label {
   width: 100%;
   max-height: 275px;
@@ -602,6 +614,13 @@ fieldset {
   -webkit-border-radius: 3px;
           border-radius: 3px;
   background-color: #2a5f4e;
+}
+
+.checkbox.unfilled + .checkbox-label::before {
+  -webkit-box-shadow: 0 0 9px 1px rgba(255, 255, 255, 0.46);
+          box-shadow: 0 0 9px 1px rgba(255, 255, 255, 0.46);
+  border: 1px solid #ff0100;
+  background-color: #d8e1e0;
 }
 
 .check {
@@ -972,6 +991,10 @@ fieldset {
   -webkit-transform: scale(1, 1);
       -ms-transform: scale(1, 1);
           transform: scale(1, 1);
+}
+
+.menu__list--visible {
+  display: block;
 }
 
 .menu__item {

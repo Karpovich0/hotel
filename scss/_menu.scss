@@ -36,6 +36,7 @@
     }   
 
 	&__list {
+        // display: none;
         position: absolute;
         top: 71px;
         left: 0;
@@ -48,8 +49,12 @@
         transform: scale(1, 0);
         transform-origin: (0, 0);
         &--active{            
-        transform: scale(1, 1);
+            transform: scale(1, 1);
         }
+        &--visible{
+            display: block;
+        }
+       
 	}
 	&__item {
         height: 30px;
