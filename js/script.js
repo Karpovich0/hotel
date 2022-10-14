@@ -122,7 +122,7 @@ buttonAsk.addEventListener('click', function(){
 });
 
 askButton.addEventListener('click', function(){
-    if(nameSurnameAsk.value !== "" && telephoneAsk.value !== "+38 (___) ___-__-__" && commentsAsk.value !== "" && userAgreementAsk.checked){
+    if(nameSurnameAsk.value !== "" && telephoneAsk.value !== "+38 (___) ___-__-__" && commentsAsk.value !== "" && userAgreementAsk.checked && onInput(emailAsk)){
         ask.classList.add("ask--hidden");
         intro.classList.add("intro--visible");
         requestAsk.classList.remove("request--hidden");
@@ -228,7 +228,7 @@ function checkForms(){
             page--;
         };
     }else if(page === 3){
-        if(nameSurname.value && telephone.value !== "+38 (___) ___-__-__" && userAgreement.checked){
+        if(nameSurname.value && telephone.value !== "+38 (___) ___-__-__" && userAgreement.checked && onInput(email)){
             reserveStepNumber.innerHTML = page+1;
             changePage();
             notVisible([nameSurname.value, telephone.value, userAgreement.checked, email.value], markArray2);
@@ -358,6 +358,35 @@ document.querySelector(".ask__back-button").addEventListener("click", function()
     userAgreementAsk.classList.remove("unfilled");
     emailAsk.classList.remove("unfilled");    
 })
+
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+email.addEventListener('input', function(){
+    onInput(email);
+});
+
+emailAsk.addEventListener('input', function(){
+    onInput(emailAsk);
+});
+
+function isEmailValid(value) {
+    return EMAIL_REGEXP.test(value)
+}
+
+function onInput(emailVar) {
+    if (isEmailValid(emailVar.value)) {
+        emailVar.classList.remove("unfilled");
+        return true;
+    } else {
+        emailVar.classList.add("unfilled");
+    }
+    if(emailVar.value === ""){
+        emailVar.classList.remove("unfilled");
+    }
+
+    console.log("nope");
+}
+
 
 
 
